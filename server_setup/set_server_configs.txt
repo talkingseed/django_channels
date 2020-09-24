@@ -1,0 +1,9 @@
+cp uwsgi.ini /etc/uwsgi/apps-enabled/django.ini
+service uwsgi restart
+uwsgi --version
+
+sudo cp uwsgi.ini /etc/init.d/
+uwsgi --ini /etc/init.d/uwsgi.ini
+
+sudo cp default /etc/nginx/sites-available/
+sudo nginx -t

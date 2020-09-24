@@ -1,0 +1,5 @@
+apt-get install build-essential autoconf
+
+### something should install gcc for builds, I guess, then newest uswgi install through pip
+#apt install python3-channels-redis
+###apt install uwsgi uwsgi-plugin-python3
