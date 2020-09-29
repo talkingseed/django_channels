@@ -3,3 +3,15 @@ apt-get install build-essential autoconf
 ### something should install gcc for builds, I guess, then newest uswgi install through pip
 #apt install python3-channels-redis
 ###apt install uwsgi uwsgi-plugin-python3
+
+
+uvicorn kindofparadox.asgi:application --reload --port 5000 --proxy-headers --log-level="trace" --forwarded-allow-ips="*"
+
+docker build -t kind .
+docker run --rm -p 80:80 kind
+
+docker container ls # will show only running
+docker image ls
+docker image prune
+docker run --name mykind
+docker exec affectionate_satoshi tail -f /var/log/redis/redis-server.log
