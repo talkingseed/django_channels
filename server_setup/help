@@ -21,3 +21,14 @@ docker run --name mykind
 docker run -it "command line" shell-name # is the method to run command if container exits too soon
 docker restart mykind # or whatever name you can see in docker dachboard,  like friendly_poitras
 docker exec mykind tail -f /var/log/redis/redis-server.log
+
+https://www.guguweb.com/2019/11/13/django-nginx-deploy-your-django-project-on-a-production-server/
+./manage.py collectstatic
+
+https://medium.com/@makcorps.activation.api/why-instagram-use-uwsgi-c51848348dd6
+
+nginx timeout settings if anything
+https://stackoverflow.com/questions/48794936/run-simultaneously-uwsgi-and-asgi-with-django
+
+uvicorn https
+https://www.uvicorn.org/deployment/

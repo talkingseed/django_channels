@@ -4,6 +4,7 @@ Ubuntu 18 might need redis or uwsgi installation and configuration workarounds.
 Main idea is to use Django for ORM, API, admin panel
 
 ## Next:
+- HTTPS since login, search and better to be done with it earlier
 - Outside mysql
 - React front end, normalized data on front end (db, state, routing?)
 - Admin: admin, users, anonymous users, chat rooms
@@ -21,5 +22,5 @@ Main idea is to use Django for ORM, API, admin panel
 - Docker Redis connect to RedisInsight?
 - What is the difference in one for all Docker vs. each for every in one (like: nginx, django, redis)
 - Entity versions (or events)
-- Caching
+- Caching https://www.nginx.com/blog/maximizing-python-performance-with-nginx-parti-web-serving-and-caching/
 - Access to/sharing with Docker volumes
