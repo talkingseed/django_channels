@@ -13,8 +13,12 @@
     <script>
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
 
+        if (window.location.protocol == 'https:') {
+            wsProtocol = 'wss://'
+        } else {wsProtocol = 'ws://'}
+
         const chatSocket = new WebSocket(
-            'ws://'
+            wsProtocol
             + window.location.host
             + '/ws/chat/'
             + roomName

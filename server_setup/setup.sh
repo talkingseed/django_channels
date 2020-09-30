@@ -1,3 +1,4 @@
+cd
 python3.8 -m venv .
 source bin/activate
 pip -V

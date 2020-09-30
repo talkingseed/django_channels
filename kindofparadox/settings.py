@@ -26,6 +26,10 @@ SECRET_KEY = 'nc#4cw^p+#r7m5fjcp^o3s7e4f64hd*%c(j8sehzo15#$udkrv'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#SESSION_COOKIE_SECURE = True
+#CSRF_COOKIE_SECURE = True
+#SECURE_SSL_REDIRECT = True
 
 
 # Application definition
