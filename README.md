@@ -24,3 +24,6 @@ Main idea is to use Django for ORM, API, admin panel
 - Entity versions (or events)
 - Caching https://www.nginx.com/blog/maximizing-python-performance-with-nginx-parti-web-serving-and-caching/
 - Access to/sharing with Docker volumes
+
+## Technical debt:
+- SSL certificates for unicorn in git folder
