@@ -1,17 +1,7 @@
 FROM python:3.8
 
-#WORKDIR /kindofparadox
-
-#apt-get -y upgrade
 #ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y nginx redis-server tesseract-ocr build-essential autoconf
-#apt -y install python3.8
-#apt -y install python3.8-dev 
-#apt -y install python3.8-venv
-#RUN python3.8 -m venv .
-#RUN source bin/activate
-
-
 
 RUN pip3 install --upgrade pip
 
@@ -28,6 +18,7 @@ ADD server_setup/uwsgi.ini /etc/init.d/
 # Create and switch to a new user
 RUN useradd --create-home ooo
 USER ooo
+# the way to copy parent folder of Dockerfile
 RUN mkdir /home/ooo/kindofparadox
 COPY . /home/ooo/kindofparadox
 WORKDIR /home/ooo/kindofparadox
@@ -37,7 +28,6 @@ USER root
 RUN ln -sf /dev/stdout /var/log/nginx/access.log && ln -sf /dev/stderr /var/log/nginx/error.log && ln -sf /var/log/redis/redis-server.log
 
 EXPOSE 80
-EXPOSE 6379
 STOPSIGNAL SIGTERM
 
 ENTRYPOINT ["sh", "server_setup/onload_docker.sh"]

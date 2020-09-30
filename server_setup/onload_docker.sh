@@ -2,4 +2,5 @@ nohup uvicorn kindofparadox.asgi:application --proxy-headers --log-level="trace"
 service nginx restart
 service redis-server restart
 nohup uwsgi --ini /etc/init.d/uwsgi.ini &
+# tail -f to keep docker running 
 tail -f /dev/null
