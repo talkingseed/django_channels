@@ -9,9 +9,15 @@ uvicorn kindofparadox.asgi:application --reload --port 5000 --proxy-headers --lo
 
 docker build -t kind .
 docker run --rm -p 80:80 kind
+# --rm tells that container should be erased as soon as it terminates
+# (which should not happen if you have "tail -f" in place)
 
-docker container ls # will show only running
+# ENTRYPOINT should have something like "tail -f /dev/null" to prevent Docker from exiting 
+
+docker container ls # will show only running, but in dashboard you will be able to see stopped (mostly)
 docker image ls
 docker image prune
 docker run --name mykind
-docker exec affectionate_satoshi tail -f /var/log/redis/redis-server.log
+docker run -it "command line" shell-name # is the method to run command if container exits too soon
+docker restart mykind # or whatever name you can see in docker dachboard,  like friendly_poitras
+docker exec mykind tail -f /var/log/redis/redis-server.log
