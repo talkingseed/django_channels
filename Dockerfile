@@ -27,7 +27,8 @@ RUN ./manage.py migrate
 USER root
 RUN ln -sf /dev/stdout /var/log/nginx/access.log && ln -sf /dev/stderr /var/log/nginx/error.log && ln -sf /var/log/redis/redis-server.log
 
-EXPOSE 80
+# EXPOSE 80 # looks like not needed with -p 80:80
+# EXPOSE 6379 # doesn't help to connect RedisInsight anyway
 STOPSIGNAL SIGTERM
 
 ENTRYPOINT ["sh", "server_setup/onload_docker.sh"]

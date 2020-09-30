@@ -8,7 +8,7 @@ apt-get install build-essential autoconf
 uvicorn kindofparadox.asgi:application --reload --port 5000 --proxy-headers --log-level="trace" --forwarded-allow-ips="*"
 
 docker build -t kind .
-docker run --rm -p 80:80 kind
+docker run --rm -p 80:80 -p 6379:6379 kind
 # --rm tells that container should be erased as soon as it terminates
 # (which should not happen if you have "tail -f" in place)
 
