@@ -4,7 +4,6 @@ Ubuntu 18 might need redis or uwsgi installation and configuration workarounds.
 Main idea is to use Django for ORM, API, admin panel
 
 ## Next:
-- Outside mysql
 - React front end, normalized data on front end (db, state, routing?)
 - Admin: admin, users, anonymous users, chat rooms
 - API docs generation
@@ -27,3 +26,4 @@ Main idea is to use Django for ORM, API, admin panel
 ## Technical debt:
 - SSL certificates for unicorn in git folder
 - figure out which shell should run nginx and redis
+- .env and .env_docker, .onload and .onload_docker -- have to be maintained in parallel, which is error prone 
