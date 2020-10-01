@@ -10,7 +10,6 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 
 ADD server_setup/default /etc/nginx/sites-available/
-ADD ssl /etc/nginx/ssl
 RUN nginx -t
 RUN service nginx restart
 RUN service redis-server restart
