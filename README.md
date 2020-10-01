@@ -26,3 +26,4 @@ Main idea is to use Django for ORM, API, admin panel
 
 ## Technical debt:
 - SSL certificates for unicorn in git folder
+- MySQL credentials to env
