@@ -1,7 +1,7 @@
 FROM python:3.8
 
 #ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install -y nginx redis-server tesseract-ocr build-essential autoconf
+RUN apt-get update && apt-get install -y nginx redis-server tesseract-ocr build-essential autoconf libmysqlclient
 
 RUN pip3 install --upgrade pip
 
