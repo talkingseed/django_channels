@@ -23,6 +23,9 @@ docker run -it "command line" shell-name # is the method to run command if conta
 docker restart mykind # or whatever name you can see in docker dachboard,  like friendly_poitras
 docker exec mykind tail -f /var/log/redis/redis-server.log
 
+# to restart wsl open PowerShell outside of WSL
+wsl --shutdown
+
 https://www.guguweb.com/2019/11/13/django-nginx-deploy-your-django-project-on-a-production-server/
 ./manage.py collectstatic
 

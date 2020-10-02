@@ -27,7 +27,7 @@ WORKDIR /home/ooo/kindofparadox
 
 
 # use "docker build --network=host -t yourtag"
-RUN /bin/bash -c '. .env_docker; ./manage.py migrate'
+RUN /bin/bash -c '. .env_docker; ./manage.py migrate; ./manage.py collectstatic'
 
 USER root
 

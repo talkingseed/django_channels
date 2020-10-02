@@ -25,5 +25,7 @@ Main idea is to use Django for ORM, API, admin panel
 
 ## Technical debt:
 - SSL certificates for unicorn in git folder
+- Not clear on mobile keys and authentication
 - figure out which shell should run nginx and redis
-- .env and .env_docker, .onload and .onload_docker -- have to be maintained in parallel, which is error prone 
+- .env and .env_docker, .onload and .onload_docker -- have to be maintained in parallel, which is error prone
+- process manager for uvicorn in case it decides to drop out once in a while
