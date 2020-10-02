@@ -4,6 +4,7 @@ Ubuntu 18 might need redis or uwsgi installation and configuration workarounds.
 Main idea is to use Django for ORM, API, admin panel
 
 ## Next:
+- Nginx settings to safely redirect to https
 - React front end, normalized data on front end (db, state, routing?)
 - Admin: admin, users, anonymous users, chat rooms
 - API docs generation
