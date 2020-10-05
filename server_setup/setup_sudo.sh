@@ -8,3 +8,4 @@ apt -y install python3.8-dev
 apt -y install python3.8-venv
 apt -y install build-essential autoconf
 apt -y install libmysqlclient
+apt -y install npm

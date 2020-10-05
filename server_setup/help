@@ -26,6 +26,14 @@ docker exec mykind tail -f /var/log/redis/redis-server.log
 # to restart wsl open PowerShell outside of WSL
 wsl --shutdown
 
+# in case of node error
+# /mnt/c/Program Files/nodejs/npx: 6: Syntax error: word unexpected (expecting "in")
+# try to open new terminal shell and pass commands there, not in VS code
+
+for Google login make sure you display the app on "localhost" or "my_server", not ips
+environment for keys have to be prefixed REACT_APP_
+
+
 https://www.guguweb.com/2019/11/13/django-nginx-deploy-your-django-project-on-a-production-server/
 ./manage.py collectstatic
 

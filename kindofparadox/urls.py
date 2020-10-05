@@ -22,6 +22,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('', include('my_auth.urls')),
     path('chat/', include('chat.urls')),
+    path('rest-auth/', include('my_auth.rest-urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

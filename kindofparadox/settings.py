@@ -46,13 +46,72 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'channels',
     'chat',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'corsheaders',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
+
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    #'allauth.socialaccount.providers.discord',
+    'allauth.socialaccount.providers.facebook',
+    #'allauth.socialaccount.providers.github',
+    #'allauth.socialaccount.providers.gitlab',
+    'allauth.socialaccount.providers.google',
+    #'allauth.socialaccount.providers.instagram',
+    #'allauth.socialaccount.providers.linkedin',
+    #'allauth.socialaccount.providers.linkedin_oauth2',   
+    #'allauth.socialaccount.providers.microsoft',
+    #'allauth.socialaccount.providers.reddit',
+    'allauth.socialaccount.providers.slack',
+    #'allauth.socialaccount.providers.steam',
+    'allauth.socialaccount.providers.twitch',
+    'allauth.socialaccount.providers.twitter',
+
+    'my_auth',
 ]
+
+SITE_ID = 1
+
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': get_env_value('GOOGLE_CLIENT_ID'),
+            'secret': get_env_value('GOOGLE_SECRET'),
+            'key': get_env_value('GOOGLE_KEY'),
+        },
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+    },
+    'slack': {
+        'APP': {
+            'client_id': get_env_value('FACEBOOK_CLIENT_ID'),
+            'secret': get_env_value('FACEBOOK_SECRET'),
+            'key': get_env_value('FACEBOOK_KEY'),
+        }
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -62,6 +121,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'kindofparadox.urls'
@@ -69,7 +129,7 @@ ROOT_URLCONF = 'kindofparadox.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['chat/templates'],
+        'DIRS': ['chat/templates', 'my_auth'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -135,9 +195,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+# STATICFILES_DIRS -- for collecting, first value -- place in that folder in /static
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    ('auth', os.path.join(BASE_DIR, "my_auth/frontend/build/")),
+]
 
 # Channels
 ASGI_APPLICATION = 'kindofparadox.routing.application'
@@ -150,3 +214,23 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        #'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+}
+
+CORS_ORIGIN_WHITELIST = (
+    'https://localhost',
+)
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ORIGIN_ALLOW_ALL = True
