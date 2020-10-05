@@ -23,6 +23,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', include('my_auth.urls')),
+    path('accounts/', include('allauth.urls')),
     path('chat/', include('chat.urls')),
     path('rest-auth/', include('my_auth.rest-urls')),
     path('admin/', admin.site.urls),

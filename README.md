@@ -4,7 +4,7 @@ Ubuntu 18 might need redis or uwsgi installation and configuration workarounds.
 Main idea is to use Django for ORM, API, admin panel
 
 ## Next:
-- Add static legal pages for authentication
+- CSRF token on login success {"detail":"CSRF Failed: CSRF token missing or incorrect."} https://localhost/rest-auth/google/
 - Nginx settings to safely redirect to https
 - API with basic authentication
 - React front end, normalized data on front end (db, state, routing?)
