@@ -4,13 +4,10 @@ Ubuntu 18 might need redis or uwsgi installation and configuration workarounds.
 Main idea is to use Django for ORM, API, admin panel
 
 ## Next:
-- DRF UI has to be disabled for production (and remove the need for "content-type": 'application/json' header)
-  with Session and Basic Authentication enabled in settings of the REST_FRAMEWORK
-- Nginx settings to safely redirect to https
-- API with basic authentication
+- Docker flow with React front end made locally and copied into Docker container to test
+- Nginx settings to safely redirect to https (and from err URLs to back/home)
+- render Swagger(Open API) for developing React locally
 - React front end, normalized data on front end (db, state, routing?)
-- Admin: admin, users, anonymous users, chat rooms
-- API docs generation
 - Tests
 - Authentication, including social
 - Mail integration (salesforce?)
@@ -30,6 +27,8 @@ Main idea is to use Django for ORM, API, admin panel
 - Access to/sharing with Docker volumes
 
 ## Technical debt:
+- DRF UI has to be disabled for production (and remove the need for "content-type": 'application/json' header)
+  with Session and Basic Authentication enabled in settings of the REST_FRAMEWORK
 - clean auto-generated React folders
 - npm i for Docker
 - SSL certificates for unicorn in git folder
