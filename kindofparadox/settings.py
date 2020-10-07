@@ -81,6 +81,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.twitter',
 
     'my_auth',
+
+    'drf_yasg',
 ]
 
 SITE_ID = 1
@@ -235,3 +237,7 @@ CORS_ORIGIN_WHITELIST = (
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+SWAGGER_SETTINGS = {
+   'DEFAULT_INFO': 'kindofparadox.urls.api_info',
+}

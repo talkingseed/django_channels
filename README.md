@@ -4,6 +4,7 @@ Ubuntu 18 might need redis or uwsgi installation and configuration workarounds.
 Main idea is to use Django for ORM, API, admin panel
 
 ## Next:
+- Swagger paths are not generated right, missed prefixes
 - Docker flow with React front end made locally and copied into Docker container to test
 - Nginx settings to safely redirect to https (and from err URLs to back/home)
 - render Swagger(Open API) for developing React locally
