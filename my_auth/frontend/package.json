@@ -7,6 +7,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.20.0",
+    "js-cookie": "^2.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-facebook-login": "^4.1.1",
@@ -16,7 +17,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "mybuild": " . ../../.env && export SOMETHING=bla && printenv|grep SOMETHING  && react-scripts build && rm index.html; mv build/index.html .",
+    "mybuild": " . ../../.env && react-scripts build && mv build/index.html .",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

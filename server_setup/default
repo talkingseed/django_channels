@@ -68,6 +68,7 @@ server{
 	      proxy_set_header Host $http_host;
 	      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 	      proxy_set_header X-Forwarded-Proto $scheme;
+		  proxy_set_header HTTP_AUTHORIZATION $http_authorization;
 	}
 
 	location /ws {
@@ -83,12 +84,12 @@ server{
 	      proxy_pass $scheme://uvicorn;
 	}
 
-        location /static {
+    location /static {
 	      # path for static files
 	      root /static;
 	}
 
-        location /media {
+    location /media {
 	      # path for static files
 	      # root /path/to/app/static;
 	}

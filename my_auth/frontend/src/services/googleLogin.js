@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from 'js-cookie'
 
 /**
  * 
@@ -9,6 +10,11 @@ const googleLogin = async (accesstoken) => {
       "https://localhost/rest-auth/google/",
       {
         access_token: accesstoken,
+      },
+      {
+        headers: {
+          'X-CSRFToken': Cookies.get('csrftoken'),
+        }
       }
     );
     console.log(res);

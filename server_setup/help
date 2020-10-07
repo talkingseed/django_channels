@@ -44,3 +44,22 @@ https://stackoverflow.com/questions/48794936/run-simultaneously-uwsgi-and-asgi-w
 
 uvicorn https
 https://www.uvicorn.org/deployment/
+
+CSRF saga:
+while it's possible to put {% csrf_token %} in public/ react template to get middleware token, 
+the sad reality is that cookie will change on logout/login, so we will need updated cookie anyway
+(the browser will take care of updating the cookie, not the middleware token in the input)
+
+API needs "content-type": 'application/json' not to throw whole HTML page at you
+
+Do we really need proxy_set_header HTTP_AUTHORIZATION $http_authorization; ?
+
+fetch("rest-auth/login/", {
+  "headers": {
+    "content-type": 'application/json',
+  },
+  "body": JSON.stringify({username:'Olga', email:'', password: '12345vzp'}),
+  "method": "POST"
+});
+
+fetch("rest-auth/logout/", {"method": "POST"});

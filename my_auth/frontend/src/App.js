@@ -2,6 +2,9 @@ import React, { Component }  from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import axios from "axios";
+import Cookies from 'js-cookie'
+
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 import fbLogin from "./services/fbLogin"
@@ -20,6 +23,33 @@ class App extends Component {
       console.log(googleResponse);
       console.log(response);
     }
+
+    const logout  = async () => {
+      let res = await axios.post(
+        "rest-auth/logout/",
+        {},
+        {
+          headers: {
+            'X-CSRFToken': Cookies.get('csrftoken'),
+          }
+        }
+      );
+      console.log(res);
+      return await res.status;
+    };
+
+    const getUser  = async () => {
+      let res = await axios.get(
+        "rest-auth/user/",
+        {
+          headers: {
+            'X-CSRFToken': Cookies.get('csrftoken'),
+          }
+        }
+      );
+      console.log(res);
+      return await res.status;
+    };
 
     const StringifyObject = () => (
       <pre>
@@ -47,7 +77,18 @@ class App extends Component {
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
         />
-
+        <br />
+        <br/>
+        <button onClick={logout}>
+          Logout
+        </button>
+        <br />
+        <br/>
+        <button onClick={getUser}>
+          Get User
+        </button>
+        <br />
+        <br/>
       </div>
     );
   }

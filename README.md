@@ -4,7 +4,8 @@ Ubuntu 18 might need redis or uwsgi installation and configuration workarounds.
 Main idea is to use Django for ORM, API, admin panel
 
 ## Next:
-- CSRF token on login success {"detail":"CSRF Failed: CSRF token missing or incorrect."} https://localhost/rest-auth/google/
+- DRF UI has to be disabled for production (and remove the need for "content-type": 'application/json' header)
+  with Session and Basic Authentication enabled in settings of the REST_FRAMEWORK
 - Nginx settings to safely redirect to https
 - API with basic authentication
 - React front end, normalized data on front end (db, state, routing?)
@@ -20,6 +21,7 @@ Main idea is to use Django for ORM, API, admin panel
 - Infinite slideshow
 
 ## Questions:
+- What is the difference between Basic and Session Authentication?
 - Turn on Bash Smart Completion
 - Docker Redis connect to RedisInsight? It looks like Reddis immediately goes offline. Their standard package doesn't do it, so maybe separate container is a way to go.
 - What is the difference in one for all Docker vs. each for every in one (like: nginx, django, redis)
